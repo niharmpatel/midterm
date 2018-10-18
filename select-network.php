@@ -12,8 +12,9 @@
 
 <?php
 $db = new PDO('mysql:host=aws.computerstudi.es;dbname=gc200396470', 'gc200396470', 'gU7vAlAkOm');
-$sql= "SELECT networkName FROM networks  ORDER BY networkName ";
+$sql= "SELECT networkName FROM networks ORDER BY networkName ";
 $cmd = $db->prepare($sql);
+
 $cmd->execute();
 $networks=$cmd->fetchAll();
 // create dropdown list
@@ -27,7 +28,7 @@ $db=null;
 ?>
      </select>
  </fieldset>
- <button>Get Shows</button>
+ <button><a href="shows.php?networkName={$n['networkName']}"></a>"Get Shows</button>
 </form>
 </body>
 </html>
